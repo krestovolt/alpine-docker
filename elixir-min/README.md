@@ -1,4 +1,4 @@
-## Elixir-Alpine Docker Image <hr/>
+## Elixir-Alpine Docker Image
 
 ### image size after build: 46.1 MB
 ### installed package:

@@ -1,4 +1,4 @@
-## Docker image based on Alpine Linux <hr/>
+## Docker image based on Alpine Linux
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/krestovolt/alpine-docker/blob/master/LICENSE)
 
