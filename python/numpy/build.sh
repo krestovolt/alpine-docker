@@ -14,11 +14,10 @@ echo "==================================="
 echo "  Flattening image"
 echo "==================================="
 container_id=$(docker run -d temp_alpine_numpy sh -c "while true; do sleep 1; done")
-docker export $container_id | gzip -7 - > temp_alpine_numpy.tar.gz
+docker export $container_id | docker import - alpine_numpy:latest
 docker kill $container_id
 docker rm -f $container_id
 docker rmi -f temp_alpine_numpy
-gunzip < temp_alpine_numpy.tar.gz | docker import - alpine_numpy:airflow-test
 
 echo
 echo "==================================="
