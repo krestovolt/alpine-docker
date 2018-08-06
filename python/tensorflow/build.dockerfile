@@ -36,7 +36,7 @@ RUN apk add --update \
     && pip install virtualenv
 
 # build deps
-RUN apk add --no-cache --virtual=.build-deps \
+RUN apk add --no-cache --virtual=build-deps \
         bash \
         cmake \
         curl \
@@ -180,12 +180,10 @@ RUN pip install --no-cache-dir /wheels/tensorflow-${TENSORFLOW_VERSION}-*.whl \
     && python -c 'import tensorflow'
 
 # Cleaning stuff
-# RUN rm -rf \
-#         /var/cache/apk/* \
-#         /tmp/* \
-#         /var/tmp/* \
-#         /usr/share/man \
-#         /usr/share/doc \
-#     && apk --no-cache del --purge build-deps
+RUN rm -rf \
+        /var/cache/apk/* \
+        /tmp/* \
+        /var/tmp/* \
+    && apk del --purge build-deps
 
 CMD ["/bin/sh"]
