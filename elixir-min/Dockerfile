@@ -1,8 +1,8 @@
-FROM alpine:3.7
+FROM alpine:3.8
 LABEL maintainer "kautsar.ab@gmail.com"
 
 ENV REFRESHED_AT=2018-06-30 \
-    ELIXIR_VERSION=1.6.6 \
+    ELIXIR_VERSION=1.8.1 \
     HOME=/opt/app/
 ENV PATH="$PATH:/opt/elixir-${ELIXIR_VERSION}/bin"
 
@@ -13,7 +13,7 @@ RUN \
     apk upgrade --no-cache --update && \
     apk add --no-cache --update \
         erlang erlang-ssl erlang-inets erlang-crypto erlang-erts erlang-observer \
-        erlang-hipe erlang-public-key erlang-asn1 \
+        erlang-hipe erlang-public-key erlang-asn1 erlang-tools \
         bash && \
     # make /opt/app dir for Home
     mkdir -p "${HOME}" && \
